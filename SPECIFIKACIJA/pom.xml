@@ -4,4 +4,29 @@
   <artifactId>SPECIFIKACIJA</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>Specifikacija</name>
+  
+  
+  
+  <build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+
+				<configuration>
+					<javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+  
+  
 </project>

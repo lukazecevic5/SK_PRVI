@@ -7,18 +7,17 @@ public class Entity {
 	private int id;
 	private String naziv;
 	
-	private HashMap<String, Entity> atributes;
+	private HashMap<String, Object> atributes;
 	
 	public Entity(int id,String naziv) {
 		this.id = id;
 		this.naziv = naziv;
-		atributes = new HashMap<String, Entity>();
+		atributes = new HashMap<String, Object>();
 	}
 	
-	public HashMap<String, Entity> atributes() {
-		return atributes;
+	public Entity() {
+		atributes = new HashMap<String, Object>();
 	}
-
 	public int getId() {
 		return id;
 	}
@@ -35,15 +34,17 @@ public class Entity {
 		this.naziv = naziv;
 	}
 
-	public HashMap<String, Entity> getAtributes() {
+	public HashMap<String, Object> getAtributes() {
 		return atributes;
 	}
 
-	public void setAtributes(HashMap<String, Entity> atributes) {
+	public void setAtributes(HashMap<String, Object> atributes) {
 		this.atributes = atributes;
 	}
 	
-	
+	public void addAtributes(String key,Object value) {
+		atributes.put(key, value);
+	}
 
 	
 }

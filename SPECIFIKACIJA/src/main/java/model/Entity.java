@@ -1,22 +1,38 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Entity {
 
 	private int id;
 	private String naziv;
 	
-	private HashMap<String, Object> atributes;
+	private Map<String, Object> simpleAtributes;
+	
+	private Map<String,Entity> entityAtributes;
 	
 	public Entity(int id,String naziv) {
 		this.id = id;
 		this.naziv = naziv;
-		atributes = new HashMap<String, Object>();
+		simpleAtributes = new HashMap<String, Object>();
+		entityAtributes = new HashMap<String, Entity>();
+	}
+	
+	public void addEntityAtribute(String key,Entity value) {
+		entityAtributes.put(key, value);
+	}
+	public Map<String, Entity> getEntityAtributes() {
+		return entityAtributes;
+	}
+	public void setEntityAtributes(Map<String, Entity> entityAtributes) {
+		this.entityAtributes = entityAtributes;
 	}
 	
 	public Entity() {
-		atributes = new HashMap<String, Object>();
+		simpleAtributes = new HashMap<String, Object>();
 	}
 	public int getId() {
 		return id;
@@ -34,17 +50,17 @@ public class Entity {
 		this.naziv = naziv;
 	}
 
-	public HashMap<String, Object> getAtributes() {
-		return atributes;
+	public Map<String, Object> getSimpleAtributes() {
+		return simpleAtributes;
 	}
 
-	public void setAtributes(HashMap<String, Object> atributes) {
-		this.atributes = atributes;
+	public void setSimpleAtributes(Map<String, Object> atributes) {
+		this.simpleAtributes = atributes;
 	}
 	
-	public void addAtributes(String key,Object value) {
-		atributes.put(key, value);
+	public void addSimpleAtributes(String key,Object value) {
+		simpleAtributes.put(key, value);
 	}
-
+	
 	
 }

@@ -7,6 +7,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
+
 public class ImportExportJSON {
 
 //    
@@ -17,7 +18,7 @@ public class ImportExportJSON {
         List<Object> entiteti = objectMapper.readValue(new File(path), new TypeReference<List<Object>>() {
         });
 
-        return entiteti;
+       return entiteti;
     }
 
     public boolean exportObjectToFile(List<Object> entiteti, String path) throws Exception {

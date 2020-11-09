@@ -35,6 +35,5 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Luka/Desktop/API.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

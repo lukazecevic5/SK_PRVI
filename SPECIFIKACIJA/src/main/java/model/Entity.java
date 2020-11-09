@@ -1,40 +1,40 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+
 
 public class Entity {
 
 	private int id;
 	private String naziv;
 	
-	private Map<String, Object> simpleAtributes;
-	
-	private Map<String,Entity> entityAtributes;
+	private Map<String, String> simpleProperties;
+	private Map<String, Entity> entityProperties;
 	
 	public Entity(int id,String naziv) {
+		super();
 		this.id = id;
 		this.naziv = naziv;
-		simpleAtributes = new HashMap<String, Object>();
-		entityAtributes = new HashMap<String, Entity>();
-	}
-	
-	public void addEntityAtribute(String key,Entity value) {
-		entityAtributes.put(key, value);
-	}
-	public Map<String, Entity> getEntityAtributes() {
-		return entityAtributes;
-	}
-	public void setEntityAtributes(Map<String, Entity> entityAtributes) {
-		this.entityAtributes = entityAtributes;
+		simpleProperties = new HashMap<String, String>();
+		entityProperties = new HashMap<String, Entity>();
 	}
 	
 	public Entity() {
-		simpleAtributes = new HashMap<String, Object>();
-		entityAtributes = new HashMap<String, Entity>();
+		simpleProperties = new HashMap<String, String>();
+		entityProperties = new HashMap<String, Entity>();
 	}
+	
+	public void addEntityProperties(String key,Entity value) {
+		entityProperties.put(key, value);
+	}
+	public Map<String, Entity> getEntityProperties() {
+		return entityProperties;
+	}
+	public void setEntityProperties(Map<String, Entity> entityAtributes) {
+		this.entityProperties = entityAtributes;
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -45,23 +45,19 @@ public class Entity {
 
 	public String getNaziv() {
 		return naziv;
-	}
+	} 
 
-	public void setNaziv(String naziv) {
-		this.naziv = naziv;
-	}
-
-	public Map<String, Object> getSimpleAtributes() {
-		return simpleAtributes;
-	}
-
-	public void setSimpleAtributes(Map<String, Object> atributes) {
-		this.simpleAtributes = atributes;
+	public void setSimpleProperties(Map<String, String> atributes) {
+		this.simpleProperties = atributes;
 	}
 	
-	public void addSimpleAtributes(String key,Object value) {
-		simpleAtributes.put(key, value);
+	public void addSimpleProperties(String key,String value) {
+		simpleProperties.put(key, value);
 	}
-	
+	@Override
+	public String toString() {
+		return "Entitet [id=" + id + ", naziv=" + naziv + ", simpleProperties=" + simpleProperties
+				+ ", entityProperties=" + entityProperties + "]";
+	}
 	
 }

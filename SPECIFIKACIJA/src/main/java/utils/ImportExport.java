@@ -1,7 +1,11 @@
 package utils;
 
-public interface ImportExport {
-	Object importFileToObject(String path, Class<?> classOf);
+import java.util.List;
 
-	boolean exportObjectToFile(Object obj, String path);
+import model.Entity;
+
+public interface ImportExport {
+	List<Entity> importFileToObject(String path) throws Exception;
+
+	boolean exportObjectToFile(List<Entity> entities, String path);
 }

@@ -33,6 +33,7 @@ public class Entity {
 	
 	public Entity() {
 		simpleAtributes = new HashMap<String, Object>();
+		entityAtributes = new HashMap<String, Entity>();
 	}
 	public int getId() {
 		return id;

@@ -4,4 +4,22 @@
   <artifactId>YAMLImpl</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>YAMLImpl</name>
+  
+  <properties>
+          <maven.compile.target>1.8</maven.compile.target>
+          <maven.compile.source>1.8</maven.compile.source>
+  </properties>
+
+<dependencies>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-yaml</artifactId>
+            <version>2.11.2</version>
+        </dependency>
+
+</dependencies>
+
+
 </project>
+  

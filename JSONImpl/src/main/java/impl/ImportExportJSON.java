@@ -26,6 +26,7 @@ public class ImportExportJSON {
         objectMapper.writeValue(new File(path), entiteti);
 
 
+        
 
         return true;
     }

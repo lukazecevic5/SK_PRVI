@@ -23,11 +23,11 @@ public class Database {
 		}
 	}
 	
-	public void updateEntity(int id) {
+	public void updateEntity(int id,Entity e) {
 		for (Entity entity : entities) {
 			if(entity.getId()==id) {
 				int index = entities.indexOf(entity);
-				
+				entities.set(index, e);
 			}
 		}
 	}

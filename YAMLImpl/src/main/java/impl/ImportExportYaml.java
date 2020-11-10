@@ -12,13 +12,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator.Feature;
 
+import model.Entity;
+
 //test
 //object == entity
 class ImportExportYaml {
 
-    public List<Object> importFileToObject(String path) throws Exception {
+    public List<Entity> importFileToObject(String path) throws Exception {
         ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
-        List<Object> entiteti = objectMapper.readValue(new File(path), new TypeReference<List<Object>>() {
+        List<Entity> entiteti = objectMapper.readValue(new File(path), new TypeReference<List<Entity>>() {
         });
 
         return entiteti;

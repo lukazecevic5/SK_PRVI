@@ -84,7 +84,7 @@ public class AddDialog extends JDialog {
 						ie.exportObjectToFile(MainView.getInstance().getList(), MainView.getInstance().getFilepath());
 					}
 					else if(tf==TypeFile.YML) {
-						//ImportExportYaml ie = new ImportExportYAML();
+						//ImportExportYaml ie = new ImportExportYaml();
 					}
 					else {
 						

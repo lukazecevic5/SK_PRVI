@@ -36,11 +36,11 @@
 		</dependency>
 		
 		<dependency>
-			<groupId>ymlImpl</groupId>
-			<artifactId>ymlImpl</artifactId>
+			<groupId>yml</groupId>
+			<artifactId>yml</artifactId>
 			<version>1.0</version>
 			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/YMLImpl.jar</systemPath>
+			<systemPath>${project.basedir}/lib/YML.jar</systemPath>
 		</dependency>
   
   </dependencies>

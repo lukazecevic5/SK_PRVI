@@ -34,6 +34,9 @@ public class Entity {
 	public void setEntityProperties(Map<String, Entity> entityAtributes) {
 		this.entityProperties = entityAtributes;
 	}
+	public Map<String, String> getSimpleProperties() {
+		return simpleProperties;
+	}
 	
 	public int getId() {
 		return id;

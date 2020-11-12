@@ -1,0 +1,66 @@
+- id: 1
+  naziv: "student3"
+  simpleProperties:
+    ime: "Pera"
+    mesto: "Beograd"
+  entityProperties: {}
+- id: 2
+  naziv: "predmet"
+  simpleProperties:
+    ime: "OOP"
+  entityProperties:
+    profesor:
+      id: 2
+      naziv: "profesor"
+      simpleProperties:
+        ime: "Pera"
+        prezime: "Peric"
+      entityProperties: {}
+- id: 3
+  naziv: "predmet"
+  simpleProperties:
+    ime: "UUP"
+  entityProperties:
+    profesor:
+      id: 3
+      naziv: "profesor"
+      simpleProperties:
+        ime: "dragan"
+        prezime: "Urosevic"
+      entityProperties: {}
+- id: 4
+  naziv: "predmet"
+  simpleProperties:
+    ime: "KIDS"
+  entityProperties:
+    profesor:
+      id: 4
+      naziv: "profesor"
+      simpleProperties:
+        ime: "STEVA"
+        prezime: "MILINKOVIC"
+      entityProperties: {}
+- id: 5
+  naziv: "student"
+  simpleProperties:
+    ime: "LUKA"
+    mesto: "ZECEVIC"
+  entityProperties: {}
+- id: 6
+  naziv: "student"
+  simpleProperties:
+    ime: "NEMANJA"
+    mesto: "KLINIC"
+  entityProperties: {}
+- id: 7
+  naziv: "predmet"
+  simpleProperties:
+    ime: "VIS"
+  entityProperties:
+    profesor:
+      id: 7
+      naziv: "profesor"
+      simpleProperties:
+        ime: "JELENA"
+        prezime: "JOVANOVIC"
+      entityProperties: {}

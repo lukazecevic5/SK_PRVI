@@ -5,6 +5,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
 
@@ -18,17 +19,28 @@ import impl.ImportExportJSON;
 import model.Entity;
 import type.TypeFile;
 
-public class AddDialog extends JDialog {
-	
-	
-	
-	public AddDialog() {
-		boolean flag = true;
-		JLabel idLbl = new JLabel("ID"),nazivLbl = new JLabel("Naziv"),atributiLbl =new JLabel("Pisite atribute po formatu naziv-vrednost-");
-		JTextField idTxt = new JTextField(),nazivTxt = new JTextField();
-		JTextArea atributText = new JTextArea();
-		JButton add = new JButton("Add"),ugnjezdeni = new JButton("Ugnjezdeni");
-		add.addActionListener(new ActionListener() {
+public class UpdateDialog extends JDialog {
+	public UpdateDialog(Entity entity) throws Exception {
+		JLabel idLbl = new JLabel("ID"),nazivLbl = new JLabel("Naziv"),atributiLbl =new JLabel("Atributi"),ugLbl = new JLabel("ugnjezdeni");
+		JTextField idTxt = new JTextField(Integer.toString(entity.getId())),nazivTxt = new JTextField(entity.getNaziv());
+		StringBuilder sb = new StringBuilder();
+		Iterator it = entity.getSimpleProperties().entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry pair = (Map.Entry)it.next();
+            sb.append(pair.getKey().toString());
+            sb.append("-");
+            sb.append(pair.getValue().toString());
+            sb.append("-\n");
+        }
+		String res = sb.toString();
+		res = res.substring(0, res.length()-2);
+		JTextArea atributText = new JTextArea(res);
+		
+		
+		JButton update = new JButton("Update");
+		MainView.getInstance().getList().remove(entity);
+		MainView.getInstance().getListModel().removeElement(entity);
+		update.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -84,75 +96,14 @@ public class AddDialog extends JDialog {
 						ie.exportObjectToFile(MainView.getInstance().getList(), MainView.getInstance().getFilepath());
 					}
 					else if(tf==TypeFile.YML) {
-						//ImportExportYaml ie = new ImportExportYAML();
+						
 					}
 					else {
 						
 					}
 					MainView.getInstance().getListModel().addElement(ent);
-					dispose();
-				
-				
-			} catch (Exception e1) {
-				e1.printStackTrace();
-			}
-			}
-		});
-		ugnjezdeni.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				int id=0;
-				try {
-					 //Map<String, String> simpleProperties = new HashMap<String, String>();
-					 if(idTxt.getText().isEmpty()) {
-						boolean i = true;
-						while(i) {
-							Random rand = new Random();
-							int r = rand.nextInt(100);
-							boolean j = false;
-							for (Entity en : MainView.getInstance().getList()) {
-								if(en.getId()==r) {
-									j = true;
-									break;
-								}
-							}
-							if(j) {
-								continue;
-							}
-							else {
-								i = false;
-								id = r;
-							}
-						}
-					 }
-					 else
-						 id = Integer.parseInt(idTxt.getText());
-					 String naziv = nazivTxt.getText();
-					 String[] str =  atributText.getText().split("-");
-					 Map<String, String> simpleProperties = new HashMap<String, String>();
-					 for(int i =0;i<str.length;i+=2) {
-						 if(str[i].contains("\n"))
-							  str[i] = str[i].substring(1);
-						 simpleProperties.put(str[i], str[i+1]);
-					 }
-					 for (Entity en : MainView.getInstance().getList()) {
-						if(en.getId()==id) {
-							JDialog warning = new JDialog();
-							JLabel idTaken = new JLabel("ID VEC ISKORISCEN");
-							warning.add(idTaken);
-							warning.setSize(new Dimension(200, 200));
-							warning.setLocationRelativeTo(null);
-							warning.setVisible(true);
-							return;
-						}
-					}
-					Entity enn = new Entity(id, naziv);
-					enn.setSimpleProperties(simpleProperties);
-					UgDialog ug = new UgDialog(enn);
-					dispose();
 					
-					
+					dispose();
 				
 				
 			} catch (Exception e1) {
@@ -161,19 +112,18 @@ public class AddDialog extends JDialog {
 				
 			}
 		});
+		
 		add(idLbl);
 		add(idTxt);
 		add(nazivLbl);
 		add(nazivTxt);
 		add(atributiLbl);
 		add(atributText);
-		add(add);
-		add(ugnjezdeni);
+		
+		add(update);
 		setLayout(new GridLayout(4,2));
-		setSize(new Dimension(500, 500));
+		setSize(new Dimension(1600, 1000));
 		setLocationRelativeTo(null);
 		setVisible(true);
 	}
-	
-	
 }

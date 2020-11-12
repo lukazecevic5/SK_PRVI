@@ -130,6 +130,9 @@ public class MainView extends JFrame {
 	public TypeFile getTypeF() {
 		return typeF;
 	}
+	public void setFilepath(String filepath) {
+		this.filepath = filepath;
+	}
 	public String getFilepath() {
 		return filepath;
 	}

@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -77,6 +78,15 @@ public class AddDialog extends JDialog {
 					}
 					Entity ent = new Entity(id, naziv);
 					ent.setSimpleProperties(simpleProperties);
+					if(MainView.getInstance().getList().size()==100) {
+						StringBuilder sb = new  StringBuilder(MainView.getInstance().getFilepath());
+						sb.append("next");
+						File newFile = new File(sb.toString());
+						newFile.createNewFile();
+						MainView.getInstance().setFilepath(sb.toString());
+						MainView.getInstance().getList().clear();
+						MainView.getInstance().getListModel().clear();
+					}
 					MainView.getInstance().getList().add(ent);
 					TypeFile tf= MainView.getInstance().getTypeF();
 					if(tf==TypeFile.JSON) {
